@@ -1,5 +1,3 @@
-- Generar proyecto
-- Usar el módulo cluster
 - i18n
 - Script de inicialización de la búsqueda
  - Lanzar desde el package.json
