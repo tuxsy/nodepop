@@ -1,4 +1,6 @@
-- i18n
+[OK] ESLint
+[OK] Cluster
+[OK] i18n
 - Script de inicialización de la búsqueda
  - Lanzar desde el package.json
 - Endpoint mostrar anuncios
