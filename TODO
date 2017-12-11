@@ -1,0 +1,20 @@
+- Generar proyecto
+- Usar el módulo cluster
+- i18n
+- Script de inicialización de la búsqueda
+ - Lanzar desde el package.json
+- Endpoint mostrar anuncios
+  - Construir modelo artículos / anuncios
+  - Usar autenticación
+  - Lista paginada
+- Opciones de búsqueda
+  - tag
+  - tipo de anuncio (compra o venta)
+  - rango de precio
+  - nombre artículo , empieza por
+- Lista de tags existentes
+  - ¿Contar cuantos artículos hay de cada uno?
+- Endpoint de registro de usuarios
+ - Guardar la clave en un hash
+- Endpoint de autenticación
+ - Con JWT
