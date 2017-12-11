@@ -21,6 +21,29 @@
     "semi": [
       "error",
       "always"
-    ]
+    ],
+    "space-before-function-paren": [
+      "error", 
+      "always"
+    ],
+    "keyword-spacing" : [
+      "error",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "array-bracket-spacing": [
+      "error", 
+      "always"
+    ]  ,
+    "object-curly-spacing": [
+      "error", 
+      "always"
+    ],
+    "space-before-blocks" : [
+      "error",
+      "always"
+    ] 
   }
 }
