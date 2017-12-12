@@ -1,9 +1,9 @@
 [OK] ESLint
 [OK] Cluster
 [OK] i18n
-- dotenv
-- Script de inicialización de la búsqueda
- - Lanzar desde el package.json
+[OK] dotenv
+[OK] Script de inicialización de la búsqueda
+ [OK] Lanzar desde el package.json
 - Endpoint mostrar anuncios
   - Construir modelo artículos / anuncios
   - Usar autenticación

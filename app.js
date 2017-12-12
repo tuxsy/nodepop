@@ -21,6 +21,9 @@ app.use((req, res, next) => {
   next();
 });
 
+// cargamos el conector a la base de datos
+require('./app/lib/connectMongoose');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
