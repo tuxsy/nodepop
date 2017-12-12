@@ -4,6 +4,14 @@
     "node": true
   },
   "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 8,
+      "ecmaFeatures": {
+          "experimentalObjectRestSpread": true,
+          "jsx": false
+      },
+      "sourceType": "module"
+  },
   "rules": {
     "no-console":0,
     "indent": [
@@ -44,6 +52,6 @@
     "space-before-blocks" : [
       "error",
       "always"
-    ] 
+    ]
   }
 }

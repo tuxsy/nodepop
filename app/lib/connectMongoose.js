@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose');
 const conn = mongoose.connection;
+const url = process.env.MONGO_DB_URL;
 
 mongoose.Promise = global.Promise;
 
@@ -14,7 +15,7 @@ conn.once('open', () => {
   console.log(`Conectado a MongoDB en ${mongoose.connection.name}`);
 });
 
-mongoose.connect('mongodb://localhost/cursonode', {
+mongoose.connect(url, {
   useMongoClient: true
 });
 
