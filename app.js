@@ -13,6 +13,14 @@ i18n.configure({
 var app = express();
 app.use(i18n.init);
 
+// i18n Middleware
+app.use((req, res, next) => {
+  const langHeader = req.get('Accept-Language');
+  const lang = req.query.lang || langHeader || 'en';
+  i18n.setLocale(req, lang);
+  next();
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

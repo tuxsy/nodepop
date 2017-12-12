@@ -1,6 +1,7 @@
 [OK] ESLint
 [OK] Cluster
 [OK] i18n
+- dotenv
 - Script de inicialización de la búsqueda
  - Lanzar desde el package.json
 - Endpoint mostrar anuncios
@@ -18,3 +19,5 @@
  - Guardar la clave en un hash
 - Endpoint de autenticación
  - Con JWT
+
+- Documentación con JDoc
