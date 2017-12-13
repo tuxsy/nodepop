@@ -8,11 +8,11 @@
   [OK] Construir modelo artículos / anuncios
   - Usar autenticación
   [OK] Lista paginada
-- Opciones de búsqueda
-  - tag
-  - tipo de anuncio (compra o venta)
-  - rango de precio
-  - nombre artículo , empieza por
+[OK] Opciones de búsqueda
+  [OK] tag
+  [OK] tipo de anuncio (compra o venta)
+  [OK] rango de precio
+  [OK] nombre artículo , empieza por
 - Lista de tags existentes
   - ¿Contar cuantos artículos hay de cada uno?
 - Endpoint de registro de usuarios

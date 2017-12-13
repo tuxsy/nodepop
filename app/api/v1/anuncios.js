@@ -26,16 +26,45 @@ router.get('/', async (req, res, next) => {
     const sort = req.query.sort;
     const fields = req.query.fields;
 
+    const tag = req.query.tag;
+    const venta = req.query.venta;
+    const precio = req.query.precio;
+    const nombre = req.query.nombre;
+
     // creo el filtro vacio
     const filter = {};
 
-    /* if (name) {
-      filter.name = name;
-    } */
+    if (tag) {
+      filter.tags = tag;
+    }
+
+    if (venta !== undefined) {
+      filter.venta = venta;
+    }
+
+    if (precio) {
+      const minusPos = precio.indexOf('-');
+      if ( minusPos < 0) {
+        filter.precio = precio;
+      } else {
+        if (precio.startsWith('-')) {
+          filter.precio = { $lte: precio.replace('-','') };
+        } else if (precio.endsWith('-')) {
+          filter.precio = { $gte: precio.replace('-','') };
+        } else {
+          filter.precio = { $gte: precio.split('-')[0], $lte: precio.split('-')[1] };
+        }
+      }
+    }
+
+    if (nombre) {
+      filter.nombre = { $regex: '^' + nombre, $options: 'i' };
+    }
 
     const rows = await Anuncio.list(filter, limit, skip, sort, fields);
     res.json({ success: true, result: rows });
   } catch (err) {
+    err.type = 'Anuncios search error';
     next(err);
   }
 });
