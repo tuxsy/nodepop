@@ -15,8 +15,8 @@ const Anuncio = require(global.__base + 'app/models/Anuncio');
 // router.use(jwtAuth());
 
 /**
- * GET /agentes
- * Obtener una lista de agentes
+ * GET /anuncios
+ * Obtener una lista de anuncios
  */
 router.get('/', async (req, res, next) => {
   try {
@@ -70,8 +70,8 @@ router.get('/', async (req, res, next) => {
 });
 
 /**
- * GET /agentes:id
- * Obtener un agente
+ * GET /anuncios:id
+ * Obtener un anuncio
  */
 router.get('/:id', async (req, res, next) => {
   try {

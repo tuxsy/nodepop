@@ -11,9 +11,11 @@ const anuncioSchema = mongoose.Schema({
   tags: [ String ]
 });
 
-// Creamos un método estático
+/**
+ * Obtenemos una lista de Anuncios
+ */
 anuncioSchema.statics.list = function (filters, limit, skip, sort, fields) {
-  // obtenemos la query sin ejecutarla
+  
   const query = Anuncio.find(filters);
   query.limit(limit);
   query.skip(skip);
@@ -23,8 +25,26 @@ anuncioSchema.statics.list = function (filters, limit, skip, sort, fields) {
   return query.exec();
 };
 
-// y por último creamos el modelo
+function findDistincTags () {
+  
+  const query = Anuncio.distinct('tags');
+  // ejecutamos la query y devolvemos una promesa
+  return query.exec();
+}
+
+anuncioSchema.statics.listTags = findDistincTags;
+
+anuncioSchema.statics.listTagsAndCountAnuncios = async function () {
+  const rows = await findDistincTags();
+  const tags = [];
+  for (let i = 0; i < rows.length; i++) {
+    const count = await Anuncio.find({ tags: rows[i] }).count().exec();
+    tags.push({ tag: rows[i], anuncios: count });
+  }
+  return tags;
+};
+
+
 const Anuncio = mongoose.model('Anuncio', anuncioSchema);
 
-// y lo exportamos
 module.exports = Anuncio;

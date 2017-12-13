@@ -46,6 +46,7 @@ app.use('/users', require('./routes/users'));
 
 // Rutas del Api V1
 app.use('/api/v1/anuncios', require('./app/api/v1/anuncios'));
+app.use('/api/v1/tags', require('./app/api/v1/tags'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

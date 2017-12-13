@@ -13,8 +13,8 @@
   [OK] tipo de anuncio (compra o venta)
   [OK] rango de precio
   [OK] nombre artículo , empieza por
-- Lista de tags existentes
-  - ¿Contar cuantos artículos hay de cada uno?
+[Ok] Lista de tags existentes
+  [OK] ¿Contar cuantos artículos hay de cada uno?
 - Endpoint de registro de usuarios
  - Guardar la clave en un hash
 - Endpoint de autenticación
