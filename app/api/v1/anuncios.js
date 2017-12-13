@@ -64,7 +64,7 @@ router.get('/', async (req, res, next) => {
     const rows = await Anuncio.list(filter, limit, skip, sort, fields);
     res.json({ success: true, result: rows });
   } catch (err) {
-    err.type = 'Anuncios search error';
+    err.i18n = 'Anuncios search error';
     next(err);
   }
 });
@@ -79,6 +79,8 @@ router.get('/:id', async (req, res, next) => {
     const anuncio = await Anuncio.findOne({ _id: _id }).exec();
     res.json({ success: true, result: anuncio });
   } catch (err) {
+    err.i18n = 'Anuncio not found';
+    err.status = 404;
     next(err);
   }
 });

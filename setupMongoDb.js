@@ -109,6 +109,7 @@ MongoClient.connect(url, async (err, db) => {
 
   console.log('Conectado a MongoDb', url);
   try {
+    await dropCollection(db, 'usuarios');
     await dropCollection(db, 'anuncios');
     await createCollection(db, 'anuncios');
     await populateCollection(db, 'anuncios', require('./example_data/anuncios'));

@@ -6,7 +6,7 @@
  [OK] Lanzar desde el package.json
 [OK] Endpoint mostrar anuncios
   [OK] Construir modelo artículos / anuncios
-  - Usar autenticación
+  [Ok] Usar autenticación
   [OK] Lista paginada
 [OK] Opciones de búsqueda
   [OK] tag
@@ -15,9 +15,10 @@
   [OK] nombre artículo , empieza por
 [Ok] Lista de tags existentes
   [OK] ¿Contar cuantos artículos hay de cada uno?
-- Endpoint de registro de usuarios
- - Guardar la clave en un hash
-- Endpoint de autenticación
- - Con JWT
+[OK] Endpoint de registro de usuarios
+ [OK] Guardar la clave en un hash
+[OK] Endpoint de autenticación
+ [OK] Con JWT
 
 - Documentación con JDoc
+- Tests funcionales

@@ -11,6 +11,11 @@ const anuncioSchema = mongoose.Schema({
   tags: [ String ]
 });
 
+anuncioSchema.index({ nombre: 1 });
+anuncioSchema.index({ venta: 1 });
+anuncioSchema.index({ precio: 1 });
+anuncioSchema.index({ tags: 1 });
+
 /**
  * Obtenemos una lista de Anuncios
  */

@@ -23,6 +23,7 @@ router.get('/', async (req, res, next) => {
     const rows = await Anuncio.listTags();
     res.json({ success: true, result: rows });
   } catch (err) {
+    err.i18n = 'Tags list error';
     next(err);
   }
 });
@@ -36,6 +37,7 @@ router.get('/count', async (req, res, next) => {
     const rows = await Anuncio.listTagsAndCountAnuncios();
     res.json({ success: true, result: rows });
   } catch (err) {
+    err.i18n = 'Tags list and count error';
     next(err);
   }
 });

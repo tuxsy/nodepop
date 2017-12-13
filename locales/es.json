@@ -1,4 +1,13 @@
 {
 	"Express": "Expresso",
-	"Anuncios search error": "Error al buscar anuncios"
+	"Anuncios search error": "Error al buscar anuncios",
+	"Cannot register user": "No se ha podido registrar el usuario",
+	"Invalid Credentials": "Credenciales inválidas",
+	"Token creation error": "No se ha podido crear el token",
+	"Anuncio not found": "No se ha encontrado el anuncio",
+	"Tags list error": "Error al listar los tags",
+	"Tags list and count error": "Error al listar los tags",
+	"No token provided": "Falta el token de auth",
+	"jwt malformed": "El token no es válido",
+	"Invalid token": "El token no es válido"
 }

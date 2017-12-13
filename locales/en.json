@@ -1,4 +1,13 @@
 {
 	"Express": "Express",
-	"Anuncios search error": "Anuncios search error"
+	"Anuncios search error": "Anuncios search error",
+	"Cannot register user": "Cannot register user",
+	"Invalid Credentials": "Invalid Credentials",
+	"Token creation error": "Token creation error",
+	"Anuncio not found": "Anuncio not found",
+	"Tags list error": "Tags list error",
+	"Tags list and count error": "Tags list and count error",
+	"No token provided": "No token provided",
+	"jwt malformed": "Invalid token",
+	"Invalid token": "Invalid token"
 }
