@@ -21,7 +21,7 @@ function dropCollection (db, col ) {
       if (docs && docs.length > 0) {
         db.collection(col).drop(err => {
           if (err) {
-            console.log(`No se ha podido eliminar la colección ${col}`)
+            console.log(`No se ha podido eliminar la colección ${col}`);
             reject(err);
             return;
           }
@@ -73,7 +73,7 @@ function populateCollection (db, col, data) {
         resolve();
       } );
     } else {
-      console.log(`No hay datos que cargar en ${col}`)
+      console.log(`No hay datos que cargar en ${col}`);
       resolve();
     }
   });
@@ -94,7 +94,7 @@ function insertDocument(db, col, document) {
       }
       console.log(`Documento insertado en ${col}`, document);
       resolve();
-    })
+    });
   });
 }
 
@@ -103,7 +103,7 @@ function insertDocument(db, col, document) {
 /* ************************** */
 MongoClient.connect(url, async (err, db) => {
   if (err) {
-    console.log('Error al conectar con MongoDb', err)
+    console.log('Error al conectar con MongoDb', err);
     process.exit(1);
   }
 
