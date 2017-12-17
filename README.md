@@ -1,5 +1,4 @@
 # nodepop
-KeepCoding prácitca módulo Node.js
 
 ## Índice
 1. [Inicio](#inicio)
@@ -10,9 +9,8 @@ KeepCoding prácitca módulo Node.js
   * [Obtener un Anuncio](#obtener-un-anuncio)
   * [Lista de Tags](#lista-de-tags)
   * [Cantidad de anuncios de cada Tag](#cantidad-de-anuncios-de-cada-tag)
-3. [Calidad de código](#quality)
-4. [Internacionalización](#i18n)
-5. [Document End](#document-end)
+3. [Calidad de código](#calidad-de-cdigo)
+4. [Internacionalización](#internacionalizacin)
 
 ## Inicio
 * *Se requiere una versión de Node.js 8.9.0 o superior*
@@ -280,10 +278,57 @@ curl -X GET \
 * **tag**: nombre del tag
 * **anuncios**: cantidad de anuncios que hay de cada tag
 
-## Calidad de código <a name="quality"></a>
-The first paragraph text
+## Calidad de código
+Usamos [ESLint](https://eslint.org/) para verificar el código que escribimos. No es necesario instalarlo
+como una dependencia global, ya que lo incorporamos en el ```package.json``` en la sección ```devDependencies```
 
-## Internacionalización<a name="i18n"></a>
-This is a sub paragraph, formatted in heading 3 style
+```bash
+# Ejecutamos una comprobación de código
+npm run ling
 
-## Document End
+# Cuando arrancamos el proyecto en modo desarrollo, cada vez que nodemon reinicia lanza la comprobación de código
+npm run dev
+```
+
+Las reglas de código se aplican en los sources que cuelgan de ```./app```. Se recomienda poner el código auto-generado fuera (por ejmplo el de *express-generator*).
+
+Estas son las reglas de ESLint que aplicamos:
+* reglas de partida: [eslint:recommended](https://eslint.org/docs/rules/)
+* saltos de línea estilo Unix [linebreak-style](https://eslint.org/docs/rules/linebreak-style)
+* las cadenas se cierran con comillas simples (```'string'```) [quotes](https://eslint.org/docs/rules/quotes)
+* las líneas deben terminar con punto y coma [semi](https://eslint.org/docs/rules/semi)
+* hay que dejar un espacio entre el nombre de una función y los paréntesis [space-before-function-paren](/eslint.org/docs/rules/space-before-function-paren)
+* antes y después de las palabras clave (```if```, ```for```, et ...) hay que dejar espacios [keyword-spacing](https://eslint.org/docs/rules/keyword-spacing)
+* hay que dejar espacios anes y después de los corchetes (```[]```) en los arrays [array-bracket-spacing](https://eslint.org/docs/rules/array-bracket-spacing)
+* hay que dejar espacios (o saltos de lína) antes y después de las llaves (```{}```) en los objetos [object-curly-spacing](https://eslint.org/docs/rules/object-curly-spacing)
+* hay que dejar un espacio antes de la llave de inicio de un bloque de código(```if (..) { ....```) [space-before-blocks](https://eslint.org/docs/rules/space-before-blocks)
+
+## Internacionalización
+Las respuesrtas de error del API están internacionalizadas y soportan los idiomas ```en```y ```es```. Un cliente puede seleccionar el idioma de uno de los siguientes modos.
+
+**A) Mediante un parámetro en la queryString**
+```bash
+curl -X GET \
+  http://localhost:3000/api/v1/anuncios?land=es \
+  ...
+```
+
+**B)Mediante una cabecera**
+
+```bash
+curl -X GET \
+  http://localhost:3000/api/v1/anuncios \
+  -H 'Accept-Language: es' \
+  ...
+```
+Para internacionalizar un mensaje de error basta con añadirle la propiedad ```i18n``` al error
+
+```javascript
+if (err) {
+  err.i18n = 'mi mensaje de error'
+  next(err);
+  return;
+}
+```
+
+Los mejsajes traducidos se encuentran el los ficheros ```./locales/en.json``` y ```./locales/es.json```
