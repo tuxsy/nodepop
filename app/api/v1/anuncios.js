@@ -59,7 +59,7 @@ router.get('/', [
       next(e);
       return;
     }
-    // const name = req.query.name;
+    
     const limit = parseInt(req.query.limit); // Number(str)
     const skip = parseInt(req.query.skip);
     const sort = req.query.sort;

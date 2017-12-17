@@ -62,7 +62,7 @@ router.post('/login', async (req, res, next) => {
 
   // Buscamos en la base de datos en usuario
   const usuario = await Usuario.findOne({ email: email }).exec();
-  // simulamos que buscamos
+
   if (!usuario || usuario.clave !== createHash(clave)) {
     const error = new Error();
     error.status = 401;
@@ -71,9 +71,6 @@ router.post('/login', async (req, res, next) => {
     return;
   }
 
-  // si el usuario existe y la password coincide
-  // creamos un token
-  // no firmar objetos de mongoose, usar mejor un nuevo objeto solo con lo mínimo
   jwt.sign({ user_id: usuario._id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN
   }, (err, token) => {
@@ -83,7 +80,6 @@ router.post('/login', async (req, res, next) => {
       return;
     }
 
-    // y lo devolvemos
     res.json({ success: true, token: token });
   });
 

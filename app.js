@@ -64,14 +64,6 @@ app.use(function (req, res, next) {
 
 // error handler
 app.use(function (err, req, res, next) {
-  
-  if (err.array) { // es un error de express-validator
-    err.status = 422;
-    const errInfo = err.array({ onlyFirstError: true })[0];
-    err.message = isAPI(req) ? 
-      { message: 'Not valid', errors: err.mapped() } : // para peticones de API
-      `Not valid - ${errInfo.param} ${errInfo.msg}`;  // para otras peticiones
-  }
 
   res.status(err.status || 500);
   

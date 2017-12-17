@@ -37,7 +37,7 @@ npm run dev
 ```
 **Acceso a la aplicación**
 
-Una vez arrancado en modo desarrollo podremos acceder a la aplicación a través de las sigientes URL
+Una vez arrancado en modo desarrollo podremos acceder a la aplicación a través de las siguientes URL
 * [http://localhost:3000]()
 * [http://localhost:3000/docs](), para consultar on-line el fichero README.md
 
@@ -121,7 +121,7 @@ curl -X GET \
   http://localhost:3000/api/v1/anuncios \
   -H 'x-access-token: .....'
 ```
-**Es importante especificar a cabecera ```x-access-token```**
+**Es importante especificar la cabecera ```x-access-token```**
 
 **Respuesta**
 ```
@@ -190,7 +190,7 @@ curl -X GET \
   http://localhost:3000/api/v1/anuncios/:id \
   -H 'x-access-token: .....'
 ```
-**Es importante especificar a cabecera ```x-access-token```**
+**Es importante especificar la cabecera ```x-access-token```**
 
 * **id** (requerido): identificador del Anuncio
 
@@ -230,7 +230,7 @@ curl -X GET \
   http://localhost:3000/api/v1/tags \
   -H 'x-access-token: .....'
 ```
-**Es importante especificar a cabecera ```x-access-token```**
+**Es importante especificar la cabecera ```x-access-token```**
 
 **Respuesta**
 ```
@@ -257,7 +257,7 @@ curl -X GET \
   http://localhost:3000/api/v1/tags/count \
   -H 'x-access-token: .....'
 ```
-**Es importante especificar a cabecera ```x-access-token```**
+**Es importante especificar la cabecera ```x-access-token```**
 
 **Respuesta**
 ```
@@ -313,7 +313,7 @@ curl -X GET \
   ...
 ```
 
-**B)Mediante una cabecera**
+**B)Mediante unla cabecera**
 
 ```bash
 curl -X GET \

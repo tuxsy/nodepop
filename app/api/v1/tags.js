@@ -2,17 +2,9 @@
 
 const express = require('express');
 const router = express.Router();
-// const jwtAuth = require('../../lib/jwtAuth');
 
-// cargar el modelo de Agente
 const Anuncio = require(global.__base + 'app/models/Anuncio');
 
-// si quiero que afecte a todo el router
-//router.use(basicAuth(
-//  process.env.BASIC_AUTH_USER, 
-//  process.env.BASIC_AUTH_PASSWORD));
-
-// router.use(jwtAuth());
 
 /**
  * GET /tags
