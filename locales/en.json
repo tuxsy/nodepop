@@ -17,5 +17,9 @@
 	"tag is invalid": "tag is invalid",
 	"precio is invalid": "precio is invalid",
 	"venta is invalid": "venta is invalid",
-	"nombre is invalid": "nombre is invalid"
+	"nombre is invalid": "nombre is invalid",
+	"nombre, email, clave required": "nombre, email, clave required",
+	"Nodepop": "Nodepop",
+	"Vew project documentation": "Vew project documentation",
+	"Run to view the documentation": "Run to view the documentation"
 }

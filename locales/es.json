@@ -17,5 +17,8 @@
 	"tag is invalid": "El tag no es válido",
 	"precio is invalid": "El precio no es un rango válido",
 	"venta is invalid": "El parámetro venta no es válido",
-	"nombre is invalid": "El parámetro nombre no es válido"
+	"nombre is invalid": "El parámetro nombre no es válido",
+	"nombre, email, clave required": "Parámetros obligatorios: nombre, email, clave","Nodepop": "Nodepop",
+	"Vew project documentation": "Ver la documentación del proyecto",
+	"Run to view the documentation": "Ejecutar para ver la documentación"
 }

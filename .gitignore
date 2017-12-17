@@ -31,3 +31,6 @@ npm-debug.log
 
 # dotenv
 .env
+
+# readme-docs
+build

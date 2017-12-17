@@ -3,9 +3,29 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+      div.code {
+        position: relative;
+        margin-top: 20px;
+        width: 100;
+        border: 1px dashed gray;
+        background-color: #F0F0F0;
+        padding: 10px 20px 10px 20px;
+      }
+    </style>
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p>
+      <a href="/docs"><%= documentationLink %></a>
+    </p>
+    <p>
+      <div class="code">
+        <pre>
+# <%= runcode %>
+npm run build-doc
+        </pre>
+      </div>
+    </p>
   </body>
 </html>

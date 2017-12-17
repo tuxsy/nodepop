@@ -17,6 +17,13 @@ router.post('/register', (req, res, next) => {
   const clave = req.body.clave;
   const email = req.body.email;
 
+  if (!nombre || !clave || !email) {
+    const e = new Error('nombre, email, clave required');
+    e.i18n = e.message;
+    next(e);
+    return;
+  }
+
   const hash = createHash(clave);
 
   const usuario = new Usuario({
