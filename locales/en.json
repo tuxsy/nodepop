@@ -21,5 +21,6 @@
 	"nombre, email, clave required": "nombre, email, clave required",
 	"Nodepop": "Nodepop",
 	"Vew project documentation": "Vew project documentation",
-	"Run to view the documentation": "Run to view the documentation"
+	"Run to view the documentation": "Run to view the documentation",
+	"email, clave required": "email, clave required"
 }

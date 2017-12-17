@@ -53,6 +53,13 @@ router.post('/login', async (req, res, next) => {
   const email = req.body.email;
   const clave = req.body.clave;
 
+  if (!clave || !email) {
+    const e = new Error('email, clave required');
+    e.i18n = e.message;
+    next(e);
+    return;
+  }
+
   // Buscamos en la base de datos en usuario
   const usuario = await Usuario.findOne({ email: email }).exec();
   // simulamos que buscamos

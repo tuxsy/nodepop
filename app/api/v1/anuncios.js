@@ -18,14 +18,13 @@ function canBeNumeric (value) {
  * @param {string} value 
  */
 function validatePrecio (value) {
-  console.log('a', value, );
   if (canBeNumeric(value)) { // Si es un valor numérico ok
     return true;
   } else { // Si no es numérico
     const a = value.split('-'); // Separamos  por '-'
     if (a.length >= 1 && a.length <= 2) { // Si el tamaño es 1-2
       a.reduce((prev, curr) => { // comprobamos el contenido del array
-        if (canBeNumeric(curr) && curr > prev ) { // números y el segundo valor mayor que el primero
+        if (curr === '' ||(canBeNumeric(curr) && curr >= prev )) { // números y el segundo valor mayor que el primero
           return curr;
         } else { // Si algo no es número fallamos
           throw new Error();

@@ -13,8 +13,14 @@ const anuncioSchema = mongoose.Schema({
     enum: [ 'work', 'lifestyle', 'mobile', 'motor' ]
   }
 }, {
+  toObject: {
+    transform: function (doc, ret) {
+      delete ret.__v;
+    }
+  },
   toJSON: {
     transform: function (doc, ret) {
+      delete ret.__v;
       ret.foto = process.env.NODEPOP_PUBLIC_URL + '/images/' + doc.foto;
     }
   }
