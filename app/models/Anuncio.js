@@ -8,7 +8,16 @@ const anuncioSchema = mongoose.Schema({
   venta: Boolean,
   precio: Number,
   foto: String,
-  tags: [ String ]
+  tags: {
+    type: [ String ],
+    enum: [ 'work', 'lifestyle', 'mobile', 'motor' ]
+  }
+}, {
+  toJSON: {
+    transform: function (doc, ret) {
+      ret.foto = process.env.NODEPOP_PUBLIC_URL + '/images/' + doc.foto;
+    }
+  }
 });
 
 anuncioSchema.index({ nombre: 1 });

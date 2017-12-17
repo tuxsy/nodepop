@@ -9,5 +9,13 @@
 	"Tags list and count error": "Error al listar los tags",
 	"No token provided": "Falta el token de auth",
 	"jwt malformed": "El token no es válido",
-	"Invalid token": "El token no es válido"
+	"Invalid token": "El token no es válido",
+	"jwt expired": "El token no es válido",
+	"Limit must be numeric": "El límite debe ser numérico",
+	"skip must be numeric": "El parámetro skip debe ser numérico",
+	"sort is invalid": "El parámetro sort no es válido",
+	"tag is invalid": "El tag no es válido",
+	"precio is invalid": "El precio no es un rango válido",
+	"venta is invalid": "El parámetro venta no es válido",
+	"nombre is invalid": "El parámetro nombre no es válido"
 }

@@ -75,10 +75,19 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   
   if (isAPI(req)) { // si es un API devuelvo JSON
-    const errorMsg = err.i18n ? res.__(err.i18n) : err.message;
-    console.log(err.i18n ? 'API ERROR w/ i18n' : 'API ERROR', errorMsg, err);
-    res.json({ success: false, error: errorMsg });
-    return;
+    if (err.validationErrors) {
+      const errors = [];
+      for (let i = 0;i < err.validationErrors.length; i ++) {
+        errors.push(res.__(err.validationErrors[i].msg));
+      }
+      res.json({ success:false, errors: errors });
+      return;
+    } else {
+      const errorMsg = err.i18n ? res.__(err.i18n) : err.message;
+      console.log(err.i18n ? 'API ERROR w/ i18n' : 'API ERROR', errorMsg, err);
+      res.json({ success: false, error: errorMsg });
+      return;
+    }
   }
   // set locals, only providing error in development
   res.locals.message = err.message;

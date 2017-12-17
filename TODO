@@ -20,5 +20,14 @@
 [OK] Endpoint de autenticación
  [OK] Con JWT
 
+[OK] Fotos de los artículos
+[OK] Validar parámetros en la búsqueda
+- Documentar en el README
+ - Poner en marcha el proyecto (.env, initdb, etc...)
+ - Reglas de calidad del código
+ - Internalización
+ - Tutorial uso del API, paso a paso
+   - Comentar algoritmo de generación del hash con firma en el registro.
+   - ¿lo ponemos en el index.html?
 - Documentación con JDoc
 - Tests funcionales

@@ -9,5 +9,13 @@
 	"Tags list and count error": "Tags list and count error",
 	"No token provided": "No token provided",
 	"jwt malformed": "Invalid token",
-	"Invalid token": "Invalid token"
+	"Invalid token": "Invalid token",
+	"jwt expired": "Invalid token",
+	"Limit must be numeric": "Limit must be numeric",
+	"skip must be numeric": "skip must be numeric",
+	"sort is invalid": "sort is invalid",
+	"tag is invalid": "tag is invalid",
+	"precio is invalid": "precio is invalid",
+	"venta is invalid": "venta is invalid",
+	"nombre is invalid": "nombre is invalid"
 }

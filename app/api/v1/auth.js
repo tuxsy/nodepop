@@ -3,20 +3,13 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
-const crypto = require('crypto');
 
 
 const Usuario = require(global.__base + 'app/models/Usuario');
-
-function createHash (clave) {
-  return crypto
-    .createHmac('sha256', Buffer.from(process.env.JWT_SECRET, 'utf8'))
-    .update(clave)
-    .digest('hex');
-}
+const { createHash } = require('../../common/hash');
 
 /**
- * POST /auth/register
+ * POST /auth/register  
  * Registra un usuario
  */
 router.post('/register', (req, res, next) => {

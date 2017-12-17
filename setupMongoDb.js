@@ -3,13 +3,14 @@
 require('dotenv').config();
 
 const { MongoClient } = require('mongodb');
+const { createHash } = require('./app/common/hash');
 
 const url = process.env.MONGO_DB_URL;
 
 /**
  * Esta función elimina una colección de MongoDB
- * @param {*} db 
- * @param {*} col 
+ * @param {string} db 
+ * @param {string} col 
  */
 function dropCollection (db, col ) {
   return new Promise((resolve, reject) => {
@@ -37,8 +38,8 @@ function dropCollection (db, col ) {
 
 /**
  * Esta función crea una dcolección en MongoDB
- * @param {*} db 
- * @param {*} col 
+ * @param {string} db 
+ * @param {string} col 
  */
 function createCollection (db, col) {
   return new Promise((resolve, reject) => {
@@ -55,23 +56,26 @@ function createCollection (db, col) {
 
 /**
  * Esta función puebla una determiada colección de MongoDb con los datos que le pasemos
- * @param {*} db 
- * @param {*} col 
- * @param {*} data 
+ * @param {string} db 
+ * @param {string} col 
+ * @param {array} data 
+ * @param {function} transformer
  */
-function populateCollection (db, col, data) {
+function populateCollection (db, col, data, transformer) {
   return new Promise((resolve, reject) => {
     if (data && data.length > 0) {
       const insertions = [];
       let i = 0;
       for (; i < data.length; i++) {
-        insertions.push(insertDocument(db, col, data[i]));
+        insertions.push(insertDocument(db, col, data[i], transformer));
       }
       Promise.all(insertions).then( () => {
         console.log('-------------------------------');
         console.log(`${i} Documentos insertados en ${col}`);
+        console.log('-------------------------------');
+        console.log('');
         resolve();
-      } );
+      } ).catch((err) => { reject(err); });
     } else {
       console.log(`No hay datos que cargar en ${col}`);
       resolve();
@@ -81,12 +85,17 @@ function populateCollection (db, col, data) {
 
 /**
  * Esta función inserta un documento en una colección de MongoDb
- * @param {*} db 
- * @param {*} col 
- * @param {*} document 
+ * @param {string} db 
+ * @param {string} col 
+ * @param {json} document 
+ * @param {function} transformer
  */
-function insertDocument(db, col, document) {
+function insertDocument (db, col, document, transformer) {
   return new Promise((resolve, reject) => {
+    if (transformer) {
+      document = transformer(document);
+    }
+
     db.collection(col).insert(document, err => {
       if (err) {
         console.log(`Error al insertar en $(col)`, document);
@@ -112,7 +121,13 @@ MongoClient.connect(url, async (err, db) => {
     await dropCollection(db, 'usuarios');
     await dropCollection(db, 'anuncios');
     await createCollection(db, 'anuncios');
+    await createCollection(db, 'usuarios');
     await populateCollection(db, 'anuncios', require('./example_data/anuncios'));
+    await populateCollection(db, 'usuarios', require('./example_data/usuarios'), usuario => {
+      const clave = usuario.clave;
+      usuario.clave = createHash(clave);
+      return usuario;
+    });
 
     console.log('Fin');
     db.close();
