@@ -1,5 +1,17 @@
 # nodepop
 
+## Sobre el despliegue de la aplicación.
+La aplicación se encuentra desplegada en [https://nodepop.tuxsyapps.net].
+
+Para testear la aplicación:
+```bash
+curl -X POST \
+  https://nodepop.tuxsyapps.net/api/v1/auth/login \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -d 'email=u1@npop.info&clave=1234'
+```
+Esta llamada nos devolverá un token. Consultar la [referencia del API](#referencia-del-api) para probar a fondo la aplicación.
+
 ## Índice
 1. [Inicio](#inicio)
 2. [Referencia del API](#referencia-del-api)
@@ -284,7 +296,7 @@ como una dependencia global, ya que lo incorporamos en el ```package.json``` en 
 
 ```bash
 # Ejecutamos una comprobación de código
-npm run ling
+npm run lint
 
 # Cuando arrancamos el proyecto en modo desarrollo, cada vez que nodemon reinicia lanza la comprobación de código
 npm run dev
@@ -309,7 +321,7 @@ Las respuesrtas de error del API están internacionalizadas y soportan los idiom
 **A) Mediante un parámetro en la queryString**
 ```bash
 curl -X GET \
-  http://localhost:3000/api/v1/anuncios?land=es \
+  http://localhost:3000/api/v1/anuncios?lang=es \
   ...
 ```
 

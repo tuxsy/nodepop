@@ -7,7 +7,7 @@
     "lint": "./node_modules/.bin/eslint ./app",
     "dev": "./node_modules/.bin/cross-env DEBUG=nodepop:* ./node_modules/.bin/nodemon ./bin/www --exec 'npm run lint && node'",
     "initdb": "node setupMongoDb.js",
-    "build-doc": "./node_modules/.bin/readme-docs"
+    "build-doc": "./node_modules/.bin/readme-docs -i ./README.md"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
