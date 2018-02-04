@@ -1,7 +1,7 @@
 # nodepop
 
 ## Sobre el despliegue de la aplicación.
-La aplicación se encuentra desplegada en [https://nodepop.tuxsyapps.net].
+La aplicación se encuentra desplegada en https://nodepop.tuxsyapps.net.
 
 Para testear la aplicación:
 ```bash
@@ -10,7 +10,12 @@ curl -X POST \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -d 'email=u1@npop.info&clave=1234'
 ```
-Esta llamada nos devolverá un token. Consultar la [referencia del API](#referencia-del-api) para probar a fondo la aplicación.
+Esta llamada nos devolverá un token que deberemos usar en las siguientes llamadas al API. Consultar la [referencia del API](#referencia-del-api) para probar a fondo la aplicación.
+
+* En la dirección https://tuxsyapps.net o a https://35.176.112.62 se encuentra desplegada una plantilla de ejeplo.
+* En la dirección https://nodechat.tuxsyapps.net se encuentra desplegada la aplicación de chat.
+* Los recursos estáticos los sirve directamente Nginx y se añade la cabecera de respuesta ```X-Owner: tuxsy```
+** ejemplo: https://nodepop.tuxsyapps.net/images/lapicero.jpg
 
 ## Índice
 1. [Inicio](#inicio)
