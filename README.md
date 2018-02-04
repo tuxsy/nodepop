@@ -15,7 +15,7 @@ Esta llamada nos devolverá un token que deberemos usar en las siguientes llamad
 * En la dirección https://tuxsyapps.net o a https://35.176.112.62 se encuentra desplegada una plantilla de ejeplo.
 * En la dirección https://nodechat.tuxsyapps.net se encuentra desplegada la aplicación de chat.
 * Los recursos estáticos los sirve directamente Nginx y se añade la cabecera de respuesta ```X-Owner: tuxsy```
-** ejemplo: https://nodepop.tuxsyapps.net/images/lapicero.jpg
+    * ejemplo: https://nodepop.tuxsyapps.net/images/lapicero.jpg
 
 ## Índice
 1. [Inicio](#inicio)
